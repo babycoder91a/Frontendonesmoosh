@@ -1,281 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Me</title>
-  <style>
-    /* Embedded CSS */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
-      background-size: 400% 400%;
-      animation: gradientShift 10s ease infinite;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+    <style>
+      /* Embedded CSS */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+        background-size: 400% 400%;
+        animation: gradientShift 10s ease infinite;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
       }
-      50% {
-        background-position: 100% 50%;
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
-      100% {
-        background-position: 0% 50%;
+
+      .container {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 30px;
+        max-width: 500px;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        animation: floatUp 2s ease-in-out infinite alternate;
+        position: relative;
+        z-index: 1;
       }
-    }
 
-    .container {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 40px;
-      max-width: 600px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-      animation: floatUp 2s ease-in-out infinite alternate;
-      position: relative;
-      z-index: 1;
-    }
-
-    @keyframes floatUp {
-      from {
-        transform: translateY(5px);
+      @keyframes floatUp {
+        from {
+          transform: translateY(5px);
+        }
+        to {
+          transform: translateY(-5px);
+        }
       }
-      to {
-        transform: translateY(-5px);
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #ff6f91;
       }
-    }
 
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #ff6f91;
-    }
-
-    p {
-      font-size: 1.2rem;
-      line-height: 1.5;
-      margin-bottom: 30px;
-      color: #fdfdfd;
-    }
-
-    .profile-picture {
-      margin: 20px 0;
-    }
-
-    .profile-picture img {
-      max-width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .project-link {
-      display: inline-block;
-      margin: 10px 5px;
-      padding: 12px 24px;
-      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .project-link:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Bubble Animation */
-    .bubbles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .bubble {
-      position: absolute;
-      bottom: -100px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 50%;
-      animation: rise 20s infinite ease-in;
-    }
-
-    @keyframes rise {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
+      p {
+        font-size: 1rem;
+        line-height: 1.4;
+        margin-bottom: 20px;
+        color: #fdfdfd;
       }
-      100% {
-        transform: translateY(-1000px) scale(0.5);
-        opacity: 0;
+
+      .profile-picture {
+        margin: 15px 0;
       }
-    }
 
-    /* Generate multiple bubbles with different sizes and positions */
-    .bubble:nth-child(1) {
-      left: 10%;
-      width: 40px;
-      height: 40px;
-      animation-duration: 25s;
-    }
+      .profile-picture img {
+        max-width: 100%;
+        max-height: 250px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
 
-    .bubble:nth-child(2) {
-      left: 20%;
-      width: 20px;
-      height: 20px;
-      animation-duration: 20s;
-      animation-delay: 5s;
-    }
+      .project-link {
+        display: inline-block;
+        margin: 8px 4px;
+        padding: 8px 16px;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
 
-    .bubble:nth-child(3) {
-      left: 30%;
-      width: 50px;
-      height: 50px;
-      animation-duration: 30s;
-      animation-delay: 2s;
-    }
+      .project-link:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
 
-    .bubble:nth-child(4) {
-      left: 40%;
-      width: 25px;
-      height: 25px;
-      animation-duration: 22s;
-      animation-delay: 4s;
-    }
+      /* Bubble Animation */
+      .bubbles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+      }
 
-    .bubble:nth-child(5) {
-      left: 50%;
-      width: 60px;
-      height: 60px;
-      animation-duration: 35s;
-      animation-delay: 1s;
-    }
+      .bubble {
+        position: absolute;
+        bottom: -100px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        animation: rise 20s infinite ease-in;
+      }
 
-    .bubble:nth-child(6) {
-      left: 60%;
-      width: 30px;
-      height: 30px;
-      animation-duration: 28s;
-      animation-delay: 3s;
-    }
+      @keyframes rise {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-1000px) scale(0.5);
+          opacity: 0;
+        }
+      }
 
-    .bubble:nth-child(7) {
-      left: 70%;
-      width: 45px;
-      height: 45px;
-      animation-duration: 26s;
-      animation-delay: 6s;
-    }
+      .bubble:nth-child(1) {
+        left: 10%;
+        width: 40px;
+        height: 40px;
+        animation-duration: 25s;
+      }
 
-    .bubble:nth-child(8) {
-      left: 80%;
-      width: 20px;
-      height: 20px;
-      animation-duration: 24s;
-      animation-delay: 2s;
-    }
+      .bubble:nth-child(2) {
+        left: 20%;
+        width: 20px;
+        height: 20px;
+        animation-duration: 20s;
+        animation-delay: 5s;
+      }
 
-    .bubble:nth-child(9) {
-      left: 90%;
-      width: 35px;
-      height: 35px;
-      animation-duration: 30s;
-      animation-delay: 5s;
-    }
+      .bubble:nth-child(3) {
+        left: 30%;
+        width: 50px;
+        height: 50px;
+        animation-duration: 30s;
+        animation-delay: 2s;
+      }
 
-    .bubble:nth-child(10) {
-      left: 100%;
-      width: 25px;
-      height: 25px;
-      animation-duration: 27s;
-      animation-delay: 3s;
-    }
-  </style>
-</head>
-<body>
-  <!-- Bubble Background -->
-  <div class="bubbles">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-  </div>
+      .bubble:nth-child(4) {
+        left: 40%;
+        width: 25px;
+        height: 25px;
+        animation-duration: 22s;
+        animation-delay: 4s;
+      }
 
-  <div class="container">
-    <h1>🎨 About Me</h1>
-    <p>
-      Welcome to my vibrant corner of the internet! Here, creativity meets web development. Let's make something colorful together.
-    </p>
+      .bubble:nth-child(5) {
+        left: 50%;
+        width: 60px;
+        height: 60px;
+        animation-duration: 35s;
+        animation-delay: 1s;
+      }
 
-    <!-- Profile Picture Section -->
-    <div class="profile-picture">
-      <img
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAYACAIAAABn4K39AAEnimNhQlgAASeKanVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNj..." <!-- Trimmed for brevity -->
-        alt="Cartoon Profile Picture"
-      />
+      .bubble:nth-child(6) {
+        left: 60%;
+        width: 30px;
+        height: 30px;
+        animation-duration: 28s;
+        animation-delay: 3s;
+      }
+
+      .bubble:nth-child(7) {
+        left: 70%;
+        width: 45px;
+        height: 45px;
+        animation-duration: 26s;
+        animation-delay: 6s;
+      }
+
+      .bubble:nth-child(8) {
+        left: 80%;
+        width: 20px;
+        height: 20px;
+        animation-duration: 24s;
+        animation-delay: 2s;
+      }
+
+      .bubble:nth-child(9) {
+        left: 90%;
+        width: 35px;
+        height: 35px;
+        animation-duration: 30s;
+        animation-delay: 5s;
+      }
+
+      .bubble:nth-child(10) {
+        left: 100%;
+        width: 25px;
+        height: 25px;
+        animation-duration: 27s;
+        animation-delay: 3s;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Bubble Background -->
+    <div class="bubbles">
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
     </div>
 
-    <!-- Workshop Description -->
-    <p>
-      For anyone who wants to start learning code, this workshop is very interesting. You will be challenged with different exercises, and everything is well explained. Homework and deadlines help keep you focused and on track.
-    </p>
+    <div class="container">
+      <h1>🎨 About Me</h1>
+      <p>
+        Welcome to my vibrant corner of the internet! Here, creativity meets web
+        development. Let's make something colorful together.
+      </p>
 
-    <!-- Vercel Project Links -->
-    <a
-      href="https://croissantsmooshone.vercel.app/"
-      class="project-link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      🥐 Explore My Croissant Project
-    </a>
-    <a
-      href="https://penguin-hub-dub-fish.vercel.app/"
-      class="project-link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      🐧 Play My Penguin Catch Game
-    </a>
-    <a
-      href="https://world-clock-one-stop-n7f6.vercel.app/"
-      class="project-link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      🌍 View My World Clock App
-    </a>
-    <a
-      href="https://she-codes-weather-app-one.vercel.app/"
-      class="project-link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      ☀️ Check Out My SheCodes Weather App
-    </a>
-  </div>
-</body>
+      <div class="profile-picture">
+        <img
+          src="https://i.imgur.com/sJRq3fJ.jpeg"
+          alt="Cartoon Profile Picture"
+        />
+      </div>
+
+      <p>
+        For anyone who wants to start learning code, this workshop is very
+        interesting. You will be challenged with different exercises, and
+        everything is well explained. Homework and deadlines help keep you
+        focused and on track.
+      </p>
+
+      <a
+        href="https://vercel.com/babycoder91as-projects/croissantsmooshone"
+        class="project-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🥐 Explore My Croissant Project
+      </a>
+      <a
+        href="https://world-clock-one-stop-n7f6.vercel.app/"
+        class="project-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🌍 View My World Clock App
+      </a>
+      <a
+        href="https://jokegeneratorhub-psc4.vercel.app/"
+        class="project-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        😂 Try My Joke Generator
+      </a>
+      <a
+        href="https://she-codes-weather-app-one.vercel.app/"
+        class="project-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ☀️ Check Out My SheCodes Weather App
+      </a>
+      <a
+        href="https://penguin-hub-dub-fish.vercel.app/"
+        class="project-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        🐧 Play My Penguin Catch Game
+      </a>
+    </div>
+  </body>
 </html>
-
