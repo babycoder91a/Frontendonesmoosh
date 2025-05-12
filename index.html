@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+    <style>
+      /* Embedded CSS */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+        background-size: 400% 400%;
+        animation: gradientShift 10s ease infinite;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 600px;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        animation: floatUp 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes floatUp {
+        from {
+          transform: translateY(5px);
+        }
+        to {
+          transform: translateY(-5px);
+        }
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #ff6f91;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: 30px;
+        color: #fdfdfd;
+      }
+
+      .profile-picture {
+        margin: 20px 0;
+      }
+
+      .profile-picture img {
+        max-width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .upload-section {
+        margin-top: 20px;
+      }
+
+      .upload-label {
+        display: inline-block;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+        color: #ffffff;
+        padding: 12px 24px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .upload-label:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      #imageUpload {
+        display: none;
+      }
+
+      .image-preview {
+        margin-top: 20px;
+        border: 2px dashed #ffffff;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        color: #ffffff;
+        animation: glow 2s ease-in-out infinite;
+      }
+
+      @keyframes glow {
+        0% {
+          border-color: #ff6f91;
+        }
+        50% {
+          border-color: #fbc2eb;
+        }
+        100% {
+          border-color: #ff6f91;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎨 About Me</h1>
+      <p>
+        Welcome to my vibrant corner of the internet! Here, creativity meets web
+        development. Let's make something colorful together.
+      </p>
+
+      <!-- Profile Picture Section -->
+      <div class="profile-picture">
+        <img src="Profile_picture.jpg" alt="Profile Picture" />
+      </div>
+
+      <!-- Image Upload Section -->
+      <div class="upload-section">
+        <label for="imageUpload" class="upload-label">
+          🌈 Upload Your Picture
+          <input type="file" id="imageUpload" accept="image/*" />
+        </label>
+        <div id="imagePreview" class="image-preview">
+          <p>✨ No image uploaded yet ✨</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Embedded JavaScript
+      document
+        .getElementById("imageUpload")
+        .addEventListener("change", function (event) {
+          const preview = document.getElementById("imagePreview");
+          const file = event.target.files[0];
+
+          if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+              preview.innerHTML = `<img src="${e.target.result}" alt="Uploaded Image" style="max-width: 100%; border-radius: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);" />`;
+            };
+
+            reader.readAsDataURL(file);
+          } else {
+            preview.innerHTML = "<p>✨ No image uploaded yet ✨</p>";
+          }
+        });
+    </script>
+  </body>
+</html>
